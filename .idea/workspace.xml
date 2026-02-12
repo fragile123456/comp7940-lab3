@@ -89,7 +89,7 @@
       <updated>1770792432440</updated>
       <workItem from="1770792433623" duration="3173000" />
       <workItem from="1770805218620" duration="2328000" />
-      <workItem from="1770872026062" duration="1770000" />
+      <workItem from="1770872026062" duration="4315000" />
     </task>
     <servers />
   </component>
@@ -97,7 +97,7 @@
     <option name="version" value="3" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/comp7940_lab$chatbot.coverage" NAME="chatbot 覆盖结果" MODIFIED="1770872288625" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/comp7940_lab$chatbot.coverage" NAME="chatbot 覆盖结果" MODIFIED="1770878213906" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/comp7940_lab$ChatGPT_HKBU.coverage" NAME="ChatGPT_HKBU 覆盖结果" MODIFIED="1770872073848" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
