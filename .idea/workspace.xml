@@ -5,13 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eb785f6e-aaa9-4e68-83ee-26f9632c194f" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/ChatGPT_HKBU.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chatbot.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercise1_ Factors.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercise2_ Function.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercise3_List Iteration.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hello.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +33,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "fragile123456"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "git@github.com:fragile123456/comp7940-lab3.git",
+    "accountId": "3215d366-6190-4d55-af20-3f8c9e7d31a0"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 0
@@ -83,7 +89,7 @@
       <updated>1770792432440</updated>
       <workItem from="1770792433623" duration="3173000" />
       <workItem from="1770805218620" duration="2328000" />
-      <workItem from="1770872026062" duration="481000" />
+      <workItem from="1770872026062" duration="1770000" />
     </task>
     <servers />
   </component>
