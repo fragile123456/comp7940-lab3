@@ -8,7 +8,7 @@ on:
 jobs:
   deploy:
     name: Deploy to EC2
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest   # must be ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -18,37 +18,12 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.EC2_KEY }}
 
-      - name: Deploy application to EC2
+      - name: Deploy application
         run: |
           ssh -o StrictHostKeyChecking=no ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
-          # Install git if not present (EC2 instances may not have it by default)
-          if ! command -v git &> /dev/null; then
-            sudo dnf install -y git || sudo apt-get install -y git
-          fi
-
-          # Clone the repository if project directory doesn't exist
-          if [ ! -d "~/chatbot_comp7940" ]; then
-            git clone https://github.com/fragile123456/comp7940-lab3.git ~/chatbot_comp7940
-          fi
-
-          # Navigate to project directory (exit if failed to avoid subsequent errors)
-          cd ~/chatbot_comp7940 || exit 1
-          # Pull the latest code from main branch
+          cd ~/chatbot_comp7940
           git pull origin main
-
-          # Create virtual environment if it doesn't exist (required for first deployment)
-          if [ ! -d "venv" ]; then
-            sudo dnf install -y python3 python3-venv || sudo apt-get install -y python3 python3-venv
-            python3 -m venv venv
-          fi
-
-          # Stop existing chatbot process (ignore error if no process found)
+          # Restart chatbot inside venv
           pkill -f "python chatbot.py" || true
-          # Start chatbot in background with nohup, redirect logs to app.log
-          nohup ./venv/bin/python chatbot.py > app.log 2>&1 &
-
-          # Wait for 2 seconds to ensure the app starts
-          sleep 2
-          # Show last 10 lines of log to verify startup status
-          tail -n 10 app.log
+          nohup ~/chatbot_comp7940/venv/bin/python chatbot.py > app.log 2>&1 &
           EOF
