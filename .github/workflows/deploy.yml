@@ -21,31 +21,12 @@ jobs:
       - name: Deploy application
         run: |
           ssh -o StrictHostKeyChecking=no ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
-          # 1. 安装 git（Amazon Linux 2023 默认没有 git）
-          sudo dnf install -y git || sudo yum install -y git || true
-
-          # 2. 确保目录存在，不存在则创建
-          mkdir -p ~/chatbot_comp7940
-          cd ~/chatbot_comp7940 || exit 1
-
-          # 3. 如果目录是空的，先克隆你的仓库；否则拉取最新代码
-          if [ ! -d .git ]; then
-              git clone https://github.com/fragile123456/comp7940-lab3.git .
-          else
-              git pull origin main
-          fi
-
-          # 4. 确保虚拟环境存在，不存在则创建并安装依赖
-          if [ ! -d venv ]; then
-              python3 -m venv venv
-              source venv/bin/activate
-              pip install -r requirements.txt
-              deactivate
-          fi
-
-          # 5. 停止旧的聊天机器人进程
-          pkill -f "python.*chatbot.py" || true
-
-          # 6. 后台启动新的聊天机器人
-          nohup ~/chatbot_comp7940/venv/bin/python chatbot.py > app.log 2>&1 &
+          # 进入项目目录（确认服务器路径和这里一致）
+          cd ~/chatbot_comp7940
+          # 拉取最新代码
+          git pull origin main
+          # 杀死旧进程（无进程则不报错）
+          pkill -f "python chatbot.py" || true
+          # 后台启动应用（指定绝对日志路径）
+          nohup ~/chatbot_comp7940/venv/bin/python chatbot.py > ~/chatbot_comp7940/app.log 2>&1 &
           EOF
