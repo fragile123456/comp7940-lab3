@@ -21,12 +21,9 @@ jobs:
       - name: Deploy application
         run: |
           ssh -o StrictHostKeyChecking=no ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
-          # 进入项目目录（确认服务器路径和这里一致）
           cd ~/chatbot_comp7940
-          # 拉取最新代码
           git pull origin main
-          # 杀死旧进程（无进程则不报错）
+          # Restart chatbot inside venv
           pkill -f "python chatbot.py" || true
-          # 后台启动应用（指定绝对日志路径）
-          nohup ~/chatbot_comp7940/venv/bin/python chatbot.py > ~/chatbot_comp7940/app.log 2>&1 &
+          nohup ~/chatbot_comp7940/venv/bin/python chatbot.py > app.log 2>&1 &
           EOF
